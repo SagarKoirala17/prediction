@@ -23,4 +23,5 @@ urlpatterns = [
     path('',include('index.urls')),
     path('account/',include('account.urls')),
     path('contact/',include('contact.urls')),
+    path('prediction/',include('prediction.urls')),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
