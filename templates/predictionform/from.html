@@ -1,65 +1,87 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+{% include 'partials/alerts.html' %}
     <form name="myForm" id="loginForm" method="post">
+        {% csrf_token %}
     <div class="box bg-green-300">
 
             <section class="text-gray-600 body-font relative container  ml-auto mr-auto">
 
-            <div class="grid grid-cols-2 gap-2">
-            <div class="relative mb-4">
-                <label for="name" class="leading-7 text-base text-red-900" style="display: block;">Name</label>
-                <input type="text" id="name" name="name" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                <span class="formerror" id="name_error"></span>
-            </div>
-            <div class="relative mb-4">
-                <label for="id" class="leading-7 text-base text-red-900" style="display: block;">id</label>
-                <input type="id" id="id" name="id" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                <span class="formerror" id="id_error"></span>
-            </div>
             <div class="relative mb-4">
                 <label for="Age" class="leading-7 text-base text-red-900" style="display: block;">Age</label>
                 <input type="number" id="Age" name="Age" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
-                <p>Sex</p>
-                <input type="radio" id="male" name="male" >
-                <label for="male">Male</label>
-                <input type="radio" id="female" name="male" >
-                <label for="female">Female</label>
+                <label for="sex">Sex</label>
+                <select name="sex" id="sex">
+                    {% for key,value in sext.items %}
+                    <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="relative mb-4">
                 <label for="CP" class="leading-7 text-base text-red-900"style="display: block;">Chest Pain</label>
-                <input type="CP" id="CP" name="CP" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="number" id="CP" name="CP" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
-                <label for="RestECG" class="leading-7 text-base text-red-900"style="display: block;">Resting Blood Pressure</label>
-                <input type="RestECG" id="RestECG" name="RestECG" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <label for="RestBPS" class="leading-7 text-base text-red-900"style="display: block;">Resting Blood Pressure</label>
+                <input type="number" id="RestBPS" name="RestBPS" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
                 <label for="Cholestrol" class="leading-7 text-sm text-gray-600" style="display: block;">Cholestrol</label>
-                <input type="Cholestrol" id="Cholestrol" name="Cholestrol" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="number" id="Cholestrol" name="Cholestrol" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
+
+
             <div class="relative mb-4">
-                <label for="FBS" class="leading-7 text-sm text-gray-600"style="display: block;">Fasting Blood Sugar</label>
-                <input type="FBS" id="FBS" name="FBS" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+             <label for="fbs">Fasting Blood Sugar</label>
+                <select name="fbs" id="fbs">
+                    {% for key,value in fbst.items %}
+                    <option value="{{key}}">{{value}}</option>
+                    {% endfor %}
+                </select>
             </div>
-            <div class="relative mb-4">
-                <label for="RestECG" class="leading-7 text-sm text-gray-600"style="display: block;">Resting EchoCardioGraphic Results</label>
-                <input type="RestECG" id="RestECG" name="RestECG" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-            </div>
+                <div class="relative mb-4">
+                    <label for="restecg">RestECG</label>
+                    <select name="restecg" id="restecg">
+                        {% for key,value in restecgt.items %}
+                        <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
             <div class="relative mb-4">
                 <label for="Thalach" class="leading-7 text-sm text-gray-600"style="display: block;">Maximum Heart Rate Achieved</label>
-                <input type="Thalach" id="Thalach" name="Thalach" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="number" id="Thalach" name="Thalach" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="relative mb-4">
-                <label for="Exag" class="leading-7 text-sm text-gray-600"style="display: block;">Exercise Induced Angina</label>
-                <input type="Exag" id="Exag" name="Exag" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    <label for="exang">Exang</label>
+                    <select name="exang" id="exang">
+                        {% for key,value in exangt.items %}
+                        <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
             </div>
             <div class="relative mb-4">
-                <label for="OldPeak" class="leading-7 text-sm text-gray-600"style="display: block;">ST Depression Induced by Exercise relative to rest</label>
-                <input type="OldPeak" id="OldPeak" name="OldPeak" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <label for="oldpeak" class="leading-7 text-sm text-gray-600"style="display: block;">ST Depression Induced by Exercise relative to rest</label>
+                <input type="number" step="0.1" id="oldpeak" name="oldpeak" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
+
+                    <div class="relative mb-4">
+            <label for="slope" class="leading-7 text-sm text-gray-600"style="display: block;">Slope</label>
+                <input type="number" id="slope" name="slope" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+
+            </div>
+                      <div class="relative mb-4">
+            <label for="ca" class="leading-7 text-sm text-gray-600"style="display: block;">CA</label>
+                <input type="number" id="ca" name="ca" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+
+
+            </div>
+                    <div class="relative mb-4">
+                        <label for="thal" class="leading-7 text-sm text-gray-600"style="display: block;">Thal</label>
+                        <input type="number" id="thal" name="thal" class="w-80 bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+
+                    </div>
             <button class="text-white bg-green-600 border-0 py-2 px-6 focus:outline-none object-center hover:bg-indigo-600 rounded text-lg" type="submit">Submit</button>
 
             </div>
