@@ -11,8 +11,8 @@ fbst={1:'Yes',
 exangt={1:'Yes',
       0:'No',
         }
-targett={1:'Yes',
-        0:'No',
+targett={1:'You seems to have a heart disease',
+        0:'You dont seem to have a heart disease',
          }
 restecgt={1:'Yes',
           0:'No',

@@ -2,7 +2,7 @@
 {% block content %}
 {% load static %}
 {% include 'partials/alerts.html' %}
-    <form name="myForm" id="loginForm" method="post">
+    <form name="myForm" action="{% url 'addpredict' %}" id="loginForm" method="post">
         {% csrf_token %}
     <div class="box bg-green-300">
 
