@@ -28,6 +28,11 @@ thalt=(
     (1,'Fixed Defect'),
     (2, "Reversible Defect")
      )
-
+cat=(
+    (0,'0'),
+    (1,'1'),
+    (2,'2'),
+    (3,'3')
+)
 
 

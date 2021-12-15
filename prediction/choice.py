@@ -22,9 +22,26 @@ cpt={0:'Typical angina',
     2:'Non anginal',
     3:'Asymptotic',
      }
-thalt={ 0,'Normal',
-    1,'Fixed Defect',
-    2,'Reversible Defect',
+thalt={ 0:'Normal',
+    1:'Fixed Defect',
+    2:'Reversible Defect',
 }
+cat={
 
+    1:'1',
+    2:'2',
+    3:'3',
+
+
+}
+slopet={
+    0:'0',
+    1:'1',
+    2:'2',
+    3:'3',
+    4:'4'
+
+
+
+}
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Prediction
 from django.contrib import messages
-from .choice import sext,trestbpst,fbst,exangt,targett,restecgt,cpt,thalt
+from .choice import sext,trestbpst,fbst,exangt,targett,restecgt,cpt,thalt,cat,slopet
 from .naive import *
 from django.http import HttpResponse
 from .middlewares.authmiddleware import simple_middleware
@@ -48,6 +48,8 @@ def addpredict(request):
             'restecgt':restecgt,
             'exangt':exangt,
             'thalt':thalt,
+            'cat':cat,
+            'slopet':slopet,
         }
         return render(request,'predictionform/from.html',context)
 
@@ -62,8 +64,12 @@ def predict(request,prediction_id):
     return render(request,'predictionform/viewprediction.html',context)
 
 def prediction_history(request):
-    prediction=Prediction.objects.filter(user=request.user)
-    context={
+    if request.user.is_authenticated:
+        prediction=Prediction.objects.filter(user=request.user).order_by('-upload_date')
+        context={
         'prediction':prediction
-    }
-    return render(request,'predictionform/predictionhistory.html',context)
+        }
+        return render(request,'predictionform/predictionhistory.html',context)
+    else:
+        messages.error(request,'You must login to your account first')
+        return redirect('login')

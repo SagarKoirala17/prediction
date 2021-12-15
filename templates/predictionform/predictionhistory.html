@@ -33,16 +33,17 @@
               {% if prediction %}
               {% for p in prediction %}
             <td class="px-4 py-3">{{ p.age }}</td>
-            <td class="px-4 py-3">{{ p.sex }}</td>
+            <td class="px-4 py-3">{% if p.sex %}Male {% else %}Female {% endif %}</td>
             <td class="px-4 py-3">{{ p.cp }}</td>
-            <td class="px-4 py-3">{{ p.cp }}</td>
+
               <td class="px-4 py-3">{{ p.restecg }}</td>
-              <td class="px-4 py-3">{{ p.trestbps }}</td>
+              <td class="px-4 py-3">{{ p.trestps }}</td>
               <td class="px-4 py-3">{{ p.chol }}</td>
               <td class="px-4 py-3">{{ p.fbs }}</td>
               <td class="px-4 py-3">{{ p.thalach }}</td>
               <td class="px-4 py-3">{{ p.exang }}</td>
               <td class="px-4 py-3">{{ p.slope }}</td>
+              <td class="px-4 py-3">{{ p.oldpeak }}</td>
               <td class="px-4 py-3">{{ p.ca }}</td>
               <td class="px-4 py-3">{{ p.thal }}</td>
               <td class="px-4 py-3">{{ p.target }}</td>
