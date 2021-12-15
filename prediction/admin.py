@@ -4,7 +4,7 @@ from .models import Prediction
 
 class PredictionAdmin(admin.ModelAdmin):
     list_display=('user','id','sex','cp','trestps','chol','fbs','thalach','exang','oldpeak','slope','ca','thal','target',)
-    list_display_links=('id',)
-    search_fields=('id','sex','cp','trestps','chol','fbs','thalach','exang','oldpeak','slope','ca','thal','target',)
+    list_display_links=('id','user')
+    search_fields=('user','id','sex','cp','trestps','chol','fbs','thalach','exang','oldpeak','slope','ca','thal','target',)
     list_per_page=25
 admin.site.register(Prediction,PredictionAdmin)

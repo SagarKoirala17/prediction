@@ -1,13 +1,15 @@
 from django.db import models
-from .choices import sext,trestbpst,fbst,exangt,targett,restecgt
+from .choices import sext,trestbpst,fbst,exangt,targett,restecgt,cpt,thalt
 from django.utils.translation import  gettext as _
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+
 # Create your models here.
 class Prediction(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     age=models.IntegerField(_("age"))
-    sex=models.BooleanField(_("sex"),choices=sext)
-    cp=models.IntegerField(_("cp"))
+    sex=models.CharField(_("sex"),choices=sext,max_length=50)
+    cp=models.IntegerField(_("cp"),choices=cpt)
     trestps=models.IntegerField(_("trestbps"))
     restecg=models.BooleanField(_("restecg"),choices=restecgt,default=1)
     chol=models.IntegerField(_("chol"))
@@ -17,7 +19,7 @@ class Prediction(models.Model):
     oldpeak=models.FloatField(_("oldpeak"))
     slope=models.IntegerField(_("slope"))
     ca=models.IntegerField(_("ca"))
-    thal=models.IntegerField(_("thal"))
+    thal=models.CharField(_("thal"),choices=thalt,max_length=50)
     target=models.BooleanField(_("target"),choices=targett,null=True)
 
     def __str__(self):
