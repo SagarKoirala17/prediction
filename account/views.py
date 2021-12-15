@@ -4,6 +4,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib.auth import views as auth_views
 
 
+
 # Create your views here.
 def register(request):
     if request.method=='POST':
