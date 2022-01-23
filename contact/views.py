@@ -18,7 +18,7 @@ def contact(request):
         contact.save()
         messages.success(request, "Your feedback has been submitted to the concerned one")
         from_email=request.user.email
-        send_mail(first_name, message,from_email, ['koiralasagar138@egmail.com'])
+        send_mail(first_name, message,from_email, ['koiralasagar138@gmail.com'])
         return redirect('contact')
 
 

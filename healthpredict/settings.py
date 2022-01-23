@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
+    "crispy_tailwind",
+    'crispy_forms',
     'prediction',
     'contact',
     'account',
@@ -73,7 +76,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'healthpredict.wsgi.application'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
