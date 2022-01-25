@@ -6,8 +6,12 @@ from .naive import *
 from django.http import HttpResponse
 from .middlewares.authmiddleware import simple_middleware
 from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+
+
+@login_required(login_url='/account/login')
 def addpredict(request):
     if request.method=="POST":
 
@@ -53,7 +57,7 @@ def addpredict(request):
         }
         return render(request,'predictionform/from.html',context)
 
-#@method_decorator(simple_middleware)
+
 def predict(request,prediction_id):
 
 

@@ -1,10 +1,17 @@
+from django.contrib.auth.models import User
+from django.shortcuts import redirect
+
 def simple_middleware(get_response):
     def middleware(request):
-        response = get_response(request)
-        if not request.path == "confirm":
-            try:
-                print(Cliente.objects.get(usuario_id=request.user.id))
-            except Cliente.DoesNotExist:
-                return redirect('login')
-        return response
+
+
+            print(request.session.get('user_id'))
+            returnUrl = request.META['PATH_INFO']
+            print(request.META['PATH_INFO'])
+            if not request.session.get('user_id'):
+                return redirect(f'login?return_url={returnUrl}')
+
+            response = get_response(request)
+            return response
+
     return middleware
