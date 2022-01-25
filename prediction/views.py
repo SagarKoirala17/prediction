@@ -69,9 +69,7 @@ def predict(request,prediction_id):
             }
             return render(request,'predictionform/viewprediction.html',context)
         else:
-            messages.error(request,"You must login from your own account to view these data")
-            return redirect('login')
-
+            return HttpResponse("Unauthorized", status=401)
 @login_required(login_url='/account/login')
 def prediction_history(request):
     if request.user.is_authenticated:
