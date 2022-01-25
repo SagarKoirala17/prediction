@@ -61,12 +61,18 @@ def addpredict(request):
 def predict(request,prediction_id):
 
 
-    prediction=get_object_or_404(Prediction,pk=prediction_id)
-    context={
-        'prediction':prediction
-    }
-    return render(request,'predictionform/viewprediction.html',context)
+        prediction=get_object_or_404(Prediction,pk=prediction_id)
+        user=prediction.user.id
+        if user==request.user.id:
+            context={
+                'prediction':prediction
+            }
+            return render(request,'predictionform/viewprediction.html',context)
+        else:
+            messages.error(request,"You must login from your own account to view these data")
+            return redirect('login')
 
+@login_required(login_url='/account/login')
 def prediction_history(request):
     if request.user.is_authenticated:
         prediction=Prediction.objects.filter(user=request.user).order_by('-upload_date')

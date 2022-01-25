@@ -6,6 +6,7 @@ def simple_middleware(get_response):
 
 
             print(request.session.get('user_id'))
+            print(request)
             returnUrl = request.META['PATH_INFO']
             print(request.META['PATH_INFO'])
             if not request.session.get('user_id'):
