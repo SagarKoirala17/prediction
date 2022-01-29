@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
+    "crispy_tailwind",
+    'crispy_forms',
     'prediction',
     'contact',
     'account',
@@ -50,6 +53,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -73,7 +77,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'healthpredict.wsgi.application'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -136,3 +142,11 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 
 }
+import  email
+#smtp confurigation
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER='koiralasagar138@gmail.com'
+EMAIL_HOST_PASSWORD='madarchod'
