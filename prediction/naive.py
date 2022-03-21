@@ -8,7 +8,7 @@ import csv
 def encode_class(mydata):
     classes = []
     for i in range(len(mydata)):
-        # print("Sagar",mydata[i][-1])
+
         if mydata[i][-1] not in classes:
             classes.append(mydata[i][-1])
 
@@ -142,22 +142,23 @@ def make_prediction(data):
 
     for i in range(len(mydata)):
         mydata[i] = [float(x) for x in mydata[i]]
-    # # split ratio = 0.8
+        #splitratio = 0.8
     # # 80% of data is training data and 20% is test data used for testing
-    # ratio = 0.8
-    # train_data, test_data = splitting(mydata, ratio)
-    # print(test_data)
-    # print('Total number of examples are: ', len(mydata))
-    # print('Out of these, training examples are: ', len(train_data))
-    # print("Test examples are: ", len(test_data))
+        ratio = 0.8
+        train_data, test_data = splitting(mydata, ratio)
+        print(test_data)
+        print('Total number of examples are: ', len(mydata))
+        print('Out of these, training examples are: ', len(train_data))
+        print("Test examples are: ", len(test_data))
 
     # # prepare model
     info = MeanAndStdDevForClass(mydata)
 
     # test model
-    # predictions = getPredictions(info, test_data)
-    # accuracy = accuracy_rate(test_data, predictions)
-    # print("Accuracy of your model is: ", accuracy)
+    predictions = getPredictions(info, test_data)
+    accuracy = accuracy_rate(test_data, predictions)
+    print("Accuracy of your model is: ", accuracy)
+    
 
     predict = getPredictions(info, data)
 

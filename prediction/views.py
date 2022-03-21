@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from .middlewares.authmiddleware import simple_middleware
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 
@@ -60,16 +61,37 @@ def addpredict(request):
 
 def predict(request,prediction_id):
 
+        
+        filename = r'E:\health\healthpredict\prediction\data.csv'
 
+        # load the file and store it in mydata list
+        mydata = csv.reader(open(filename, "r"))
+        mydata = list(mydata)
+        mydata = encode_class(mydata)
+        for i in range(len(mydata)):
+            mydata[i] = [float(x) for x in mydata[i]]
+            ratio = 0.8
+            train_data, test_data = splitting(mydata, ratio)
+        info = MeanAndStdDevForClass(mydata)
+
+    
+        predictions = getPredictions(info, test_data)
+        accuracy = accuracy_rate(test_data, predictions)
+       
+   
+        
         prediction=get_object_or_404(Prediction,pk=prediction_id)
+        
         user=prediction.user.id
         if user==request.user.id:
             context={
-                'prediction':prediction
+                'prediction':prediction,
+                'accuracy':accuracy,
             }
             return render(request,'predictionform/viewprediction.html',context)
         else:
-            return HttpResponse("Unauthorized", status=401)
+            return HttpResponse("Unauthorized Error: You must login from your own account.", status=401)
+
 @login_required(login_url='/account/login')
 def prediction_history(request):
     if request.user.is_authenticated:
