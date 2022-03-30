@@ -10,6 +10,7 @@
       <table class="table-auto w-full text-left whitespace-no-wrap">
         <thead>
           <tr>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">S.N</th>
             <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">Age</th>
             <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Sex</th>
             <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Chest Pain</th>
@@ -23,6 +24,7 @@
               <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Slope</th>
               <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">CA</th>
               <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Thal</th>
+              
               <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Target</th>
 
 
@@ -32,6 +34,7 @@
           <tr>
               {% if prediction %}
               {% for p in prediction %}
+            <td class="px-4 py-3">{{ forloop.counter }}</td>
             <td class="px-4 py-3">{{ p.age }}</td>
             <td class="px-4 py-3">{% if p.sex %}Male {% else %}Female {% endif %}</td>
             <td class="px-4 py-3">{{ p.cp }}</td>
@@ -46,6 +49,7 @@
               <td class="px-4 py-3">{{ p.oldpeak }}</td>
               <td class="px-4 py-3">{{ p.ca }}</td>
               <td class="px-4 py-3">{{ p.thal }}</td>
+              
               <td class="px-4 py-3">{{ p.target }}</td>
 
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="a1e4ddb2-8a0d-4941-955a-f889339ad803" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -11,6 +12,15 @@
       <change beforePath="$PROJECT_DIR$/prediction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/prediction/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/account/Forgetpassword/password_reset_sent.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/Forgetpassword/password_reset_sent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/partials/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/header.html" afterDir="false" />
+=======
+    <list default="true" id="44235257-7c9a-4058-8739-d6434e1d3b99" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction/choice.py" beforeDir="false" afterPath="$PROJECT_DIR$/prediction/choice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/predictionform/from.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/predictionform/from.html" afterDir="false" />
+>>>>>>> d93c9bc04234142bd8f7126d323a326589b13b7f
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +33,10 @@
   <component name="ProjectId" id="21iWw5H2ftgin7kG4kiCrGVuyEO" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+<<<<<<< HEAD
     <option name="showExcludedFiles" value="true" />
+=======
+>>>>>>> d93c9bc04234142bd8f7126d323a326589b13b7f
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -57,5 +70,27 @@
       <updated>1647007458903</updated>
     </task>
     <servers />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="44235257-7c9a-4058-8739-d6434e1d3b99" name="Changes" comment="" />
+      <created>1643477825804</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1643477825804</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

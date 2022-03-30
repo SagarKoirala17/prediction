@@ -40,7 +40,7 @@ def addpredict(request):
             context = {
                 'prediction': prediction
             }
-            return render(request, 'predictionform/viewprediction.html', context)
+            return redirect('/prediction/' + str(prediction.id) )
         else:
             return redirect('login')
 
@@ -85,8 +85,9 @@ def predict(request,prediction_id):
         user=prediction.user.id
         if user==request.user.id:
             context={
-                'prediction':prediction,
                 'accuracy':accuracy,
+                'prediction':prediction,
+                
             }
             return render(request,'predictionform/viewprediction.html',context)
         else:

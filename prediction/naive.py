@@ -146,10 +146,10 @@ def make_prediction(data):
     # # 80% of data is training data and 20% is test data used for testing
         ratio = 0.8
         train_data, test_data = splitting(mydata, ratio)
-        print(test_data)
-        print('Total number of examples are: ', len(mydata))
-        print('Out of these, training examples are: ', len(train_data))
-        print("Test examples are: ", len(test_data))
+        # print(test_data)
+        # print('Total number of examples are: ', len(mydata))
+        # print('Out of these, training examples are: ', len(train_data))
+        # print("Test examples are: ", len(test_data))
 
     # # prepare model
     info = MeanAndStdDevForClass(mydata)
